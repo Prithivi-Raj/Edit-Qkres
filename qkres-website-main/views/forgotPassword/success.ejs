@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!-- <meta name=”googlebot” content=”noindex”>
+    <meta name=”robots” content=”noindex”> -->
+    <title>Forgot password</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>Sample Design</title>
+    <!-- css -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="/CSS/signup.css">
+
+    <!-- js -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <!-- fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap" rel="stylesheet">
+    <!-- fontawesome -->
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <link rel="shortcut icon" href="/images/favicon.ico">
+    <style media="screen">
+      #particles-js {
+        position: absolute;
+        left: 0;
+        top: 0;
+        height:100%;
+        width: 100%;
+        z-index:0;
+      }
+    </style>
+</head>
+<body >
+    <div id="particles-js"><canvas class="particles-js-canvas-el" width="1889" height="349" style="width: 100%; height: 100%;"></canvas></div>
+    <%- include("../navbar.ejs")  %>
+    <div class="signup-form container text-center mt-5">
+      <form action="/reset" method="post" class="form-signin">
+
+        <img class="mb-2 my-2 " src="images/check-circle.gif" alt="success gif" height="40">
+        <h6 class="my-2 font-weight-normal" style="  font-family: 'Montserrat',sans-serif;">Success</h6>
+
+         <p style="font-size:1rem;" class="my-2">Please check your inbox to reset password! </p>
+
+
+        <p class="mt-2 mb-2 text-muted">© 2020-2021</p>
+      </form>
+      <!-- <div class="text-center"><i class="fas fa-backward fa-1x"></i>  <a style="color:green;" href="/login"> Go back</a></div> -->
+    </div>
+    <script src="/js/particles.min.js" charset="utf-8"></script>
+    <script src="/js/apply.js" charset="utf-8"></script>
+</body>
+</html>

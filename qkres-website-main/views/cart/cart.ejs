@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!-- <meta name="googlebot" content="noindex">
+    <meta name="robots" content="noindex"> -->
+    <title>Cart</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="/CSS/styles.css">
+    <!-- internal css -->
+    <style media="screen">
+  /* body {
+    background: #d9ecf2;
+  } */
+.x{
+  border:1px solid #ffe05d;border-radius:20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.x:hover{
+  background: #fff8cd;
+}
+
+  .x1 {
+    border-bottom: 1px grey solid;
+  }
+</style>
+    <!-- fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap" rel="stylesheet">
+
+  <!-- js -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/89e9116ed8.js" crossorigin="anonymous"></script>
+
+    <link rel="shortcut icon" href="images/favicon.ico">
+</head>
+<body onload="myFunction()">
+  <div id="mechLoader" style=" position: fixed;
+  width: 100%;
+  height: 100vh;
+  background:#fff
+  url('/images/cartPage.gif')
+   no-repeat center center;
+  z-index: 2000;"></div>
+<%-include("../navbar.ejs");  %>
+
+<section class="cart">
+  <% if(session.cart) { %>
+
+  <div style="width:70%;" class="order container mx-auto  py-5">
+    <div class="d-flex  x1 pb-2">
+      <img class="mr-3" src="/images/cart-black.png" alt="cart image">
+      <h1 style="font-size:x-large;">Order summary</h1>
+    </div>
+    <div class="d-flex justify-content-between">
+     <div class="my-2 ml-4">
+       <h3 style="font-size:1rem;font-family:Lato;">Your Orders</h3>
+     </div>
+     <div class="my-2">
+      <a class="btn btn-sm btn-danger" href="/delete-cart">Delete All</a>
+    </div>
+    </div>
+    <div>
+      <%for(let x of Object.values(session.cart.items)) { %>
+    <%  if(x.item.identity ==="chemicals"){ %>
+
+      <div  class="p-3 x  my-3">
+        <h1 class="mx-2 my-2" style="font-size:0.8rem;float:right"> <%= x.item.name %> </h1>
+      <span > <b>Qty :</b> <%= x.Qty %> Litres </span>
+      <div id="userInfo" style="display: flex;flex-direction: row;">
+      </div>
+      </div>
+     <% }else{ %>
+      <div  class="p-3 x  my-3">
+        <div style="float:right;" class="pl-4">
+          <img style="height:70px;"  src="/<%= x.item.image %>" alt="added cart-item image">
+        </div>
+        <h1 class="mx-2 my-2" style="font-size:0.8rem;float:right"> <%= x.item.name %> </h1>
+      <span > <b>Qty :</b> <%= x.Qty %> </span>
+      <div id="userInfo" style="display: flex;flex-direction: row;">
+        <form action="/delete-items" method="POST">
+        <input type="hidden" value="<%=x.item._id%>" name="id">
+  
+        <button  style="position:relative;top:8px;" class="btn btn-sm btn-outline-danger  mx-2" href="">
+          <span>-</span>
+          <span><img style="height: 20px;" src="/images/remove-from-cart.svg" alt="remove from cart svg"> </span>
+        </button>
+      </form>
+      <form action="/add-items" method="POST">
+        <input type="hidden" value="<%=x.item._id%>" name="id">
+  
+        <button  style="position:relative;top:8px;" class="btn btn-sm btn-outline-success  mx-2" href="">
+          <span>+</span>
+          <span><img style="height: 20px;" src="/images/add-to-cart.svg" alt="add to cart svg"> </span>
+        </button>
+      </form>
+      </div>
+      </div>
+     <% } %>
+  <% } %>
+  </div>
+
+<hr>
+<div class="text-right">
+<% if(user){%>
+  <a class="btn btn-lg btn-outline-success" href="/userDetails">Continue 
+  <img src="/images/ri.png" alt="arrow png"></a>
+
+<% } else{  %>
+<div>
+  <a class="btn btn-lg btn-outline-success" href="/login">login to place order</a>
+</div>
+<%} %>
+</div>
+</div>
+
+
+
+
+    <% }else { %>
+    <div class="container-fluid d-flex flex-column justify-content-center align-items-center my-4 text-center">
+  <h1 class="mt-4" style="font-size:x-large;">Cart is empty 😪 </h1>
+  <p class="my-3" style="color:grey;">You haven't added anything to cart yet<br>
+ </p>
+  <img style="height:110px;" class="mb-3" src="/images/empty-cart.png" alt="empty-cart">
+  <a role="button"  class="btn btn-md btn-outline-primary"  onclick="goBack()">Go back</a>
+    </div>
+    <% } %>
+
+  </section>
+
+<script type="text/javascript">
+$(window).scroll(function() {
+  var scroll = $(window).scrollTop();
+  if (scroll < 150) {
+    $('.fixed-top').css('background', '#fff');
+  }
+
+   else {
+    $('.fixed-top').css('background', '#d3dbff');
+  }
+  var preloader = document.getElementById("mechLoader");
+function myFunction(){
+			preloader.style.display = 'none';
+		};
+});
+function goBack(){
+  window.history.back();
+}
+
+</script>
+<script src="/js/elecEquip.js" charset="utf-8"></script>
+
+</body>
+
+</html>

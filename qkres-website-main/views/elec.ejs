@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr" itemtype="http://schema.org/WebPage">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta property="og:title" content="QkRes Technologies and Research Services - Electrical equipments">
+  <meta property="og:description" content="
+     We deliver various electrical equipment ranging from basic to advanced equipment such as :
+     Dc Power supply,Oscilloscope,digital storage Oscilloscope,digital ohmmeter,portable typemeter,decade box,electronic training boards
+     And many more on request from your side
+">
+<meta name="name" content="QkRes Technologies and Research Services - Electrical equipments">
+<meta name="description" content="
+We deliver various electrical equipment ranging from basic to advanced equipment such as :
+     Dc Power supply,Oscilloscope,digital storage Oscilloscope,digital ohmmeter,portable typemeter,decade box,electronic training boards
+     And many more on request from your side">
+
+ <meta name="url" content="https://qkres.com/electrical-lab-equipments">
+
+  <title>QkRes Technologies and Research Services - Electrical equipments</title>
+  <!-- css -->
+  <link rel="canonical" href="https://qkres.com/electrical-lab-equipments"/>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="/CSS/spinkit.min.css">
+  <link rel="stylesheet" href="/CSS/elec_home.css">
+ 
+
+  <!-- js -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.js"></script>
+
+  <!-- fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap" rel="stylesheet">
+
+  <!-- fontawesome -->
+  <script src="https://kit.fontawesome.com/89e9116ed8.js" crossorigin="anonymous"></script>
+  <link rel="shortcut icon" href="/images/favicon.ico">
+</head>
+
+<body onload="myFunction()">
+
+<div id= "mechLoader">
+  <div style="--sk-color:#fff;--sk-size:70px;"  class="sk-chase">
+    <div class="sk-chase-dot"></div>
+    <div class="sk-chase-dot"></div>
+    <div class="sk-chase-dot"></div>
+    <div class="sk-chase-dot"></div>
+    <div class="sk-chase-dot"></div>
+    <div class="sk-chase-dot"></div>
+  </div>
+</div>
+  <div id="particles-js"><canvas class="particles-js-canvas-el" width="1889" height="349" style="width: 100%; height: 100%;"></canvas></div>
+  <svg class="wave-top" id="wave" width="100" viewBox="0 0 1200 250">
+    <path fill-rule="evenodd" clip-rule="evenodd" d="M0 108.306L50 114.323C100 120.34 200 132.374 300 168.476C400 204.578 500 264.749 600 246.698C700 228.647 800 132.374 900 108.306C1000 84.2382 1100 132.374 1150 156.442L1200 180.51V-8.5451e-06H1150C1100 -8.5451e-06 1000 -8.5451e-06 900 -8.5451e-06C800 -8.5451e-06 700 -8.5451e-06 600 -8.5451e-06C500 -8.5451e-06 400 -8.5451e-06 300 -8.5451e-06C200 -8.5451e-06 100 -8.5451e-06 50 -8.5451e-06H0V108.306Z"
+    fill="#0058ab"/>
+  </svg>
+  <%- include("navbar.ejs")  %>
+
+
+  <div id="head">
+    <div id="title" data-aos="flip-left">
+      <h1 style="font-size:2.5rem;">Electricals</h1>
+    </div>
+    <div class="arrow bounce">
+      <a style="color:white;" class="fa fa-angle-down fa-3x" href="#Nsiqwe"></a>
+    </div>
+  </div>
+  <div class="wrap" id="content">
+    <section id="first">
+      <!-- invisible div  -->
+      <div style="height:64px;" class="boxes invisible" id="Nsiqwe">
+        <h1>this content wont visible bro just chill</h1>
+      </div>
+      <div class="boxes">
+        <div id="Nsj" class="box-1">
+          <h4 style="color: white;">Our Products</h4>
+        </div>
+        <div class="container-fluid row mx-auto ">
+          <% elec.forEach(function(e){ %>
+          <div class="col-md-4 my-4 elec">
+            <div class="text-center">
+              <img style="height:120px;" class="mb-4 menu_img" src="/<%= e.image %>" alt="qkres electrical-equipment's image">
+            </div>
+            <div class="text-center">
+              <h2 style="font-size:1rem;color:white" class="mb-2"><%= e.name %></h2>
+              <div class="d-flex justify-content-center  mt-2">
+              <a  class="btn btn-sm btn-outline-success" href="<%= e.link %>">View more</a>
+              </div>
+            </div>
+          </div>
+          <%  }) %>
+        </div>
+      </div>
+    </section>
+  </div>
+  </section>
+  </div>
+<section class="mechanicals-section">
+  <h4 style="font-family: 'Lato',serif;">Didn't find what you are looking for ?</h4>
+  <p>Let us know your requirment.we will provide assistance in shortest possible time</p>
+  <a target="_blank" class="btn btn-lg btn-primary" href="https://forms.gle/ezhxc3spu5izrnG9A">Submit your Requirement</a>
+</section>
+  <%- include("../views/footer.ejs") %>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="/js/particles.min.js" charset="utf-8"></script>
+  <script src="/js/got.js" charset="utf-8"></script>
+  <script src="/js/elecEquip.js" charset="utf-8"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha512-z4OUqw38qNLpn1libAN9BsoDx6nbNFio5lA6CuTp9NlK83b89hgyCVq+N5FdBJptINztxn1Z3SaKSKUS5UP60Q==" crossorigin="anonymous"></script>
+  <script src="/js/wave.js"></script>
+</body>
+
+</html>

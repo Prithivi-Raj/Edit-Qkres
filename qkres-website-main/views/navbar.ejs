@@ -1,0 +1,84 @@
+<!-- <script src="https://apis.google.com/js/platfotm.js" async defer charset="utf-8"></script> -->
+<div class="container-fluid">
+  <nav class="navbar navbar-expand-md navbar-light bg-light fixed-top">
+
+     <div id="icon">
+        <a class="navbar-brand" href="/"> <img class="img-fluid" src="/images/Qkres_logo.png" alt=""> </a>
+     </div>
+
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="/">
+              QkRes Technologies and Research Services<span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link home" href="/"> <img style="height: 20px;" src="/images/home.svg" alt="home"> </i></a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-weight:bold;">Services</a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown1">
+              <a class="dropdown-item" href="/mechanical-services">Mechanical Services</a>
+              <a class="dropdown-item" href="/consultancy">Consultancy</a>
+              <a class="dropdown-item" href="/3d-printing">3D Printing</a>
+              <a class="dropdown-item" href="/manufacturing-and-fabrication">Manufacturing and Fabrication</a>
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-weight:bold;">
+              Material &amp; Resources
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown2">
+              <a class="dropdown-item" href="/chemicals">Chemicals</a>
+              <a class="dropdown-item" href="/chemical-lab-equipments">Chemical lab Equipments</a>
+              <a class="dropdown-item" href="/electrical-lab-equipments">Electrical Equipments</a>
+              <a class="dropdown-item" href="/mechanical-instruments">Mechanical Equipments</a>
+
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown3" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-weight:bold;">
+              More
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown3">
+              <a class="dropdown-item" href="/business-opportunities">Business Opportunities</a>
+              <a class="dropdown-item" href="/about-us">About Us</a>
+            </div>
+          </li>
+          <li class="nav-item" id="cart">
+            <div >
+              <a id="cart_link"   class="nav-link d-flex p-2" href="/cart"  >
+                  <span style="color: red;" id="cartCounter" class="px-2"> <%= session.cart ? session.cart.totalQty : "" %> </span>
+                 <img  style="height: 25px;"  src="/images/shopping-cart.svg" alt="cart-logo">
+               </a>
+            </div>
+         </li>
+        </ul>
+
+ <% if(user){ %>
+ <span>  <a class="mx-2" href="/profile">  <img style="height: 25px;" src="/images/user.svg" alt=""> </i></a>
+ </span>
+                     <% if(user.local){%>
+                            <span><%= user.local.customerName %> </span>
+                      <% }else{ %>
+                           <span><%= user.google.customerName %> </span>
+                      <% } %>
+
+<% }else{ %>
+  <a role="button" class="sign btn btn-sm btn-outline-success" href="/register">Sign Up</a>
+  <a role="button" class="sign btn btn-sm btn-outline-success" href="/login">Log In</a>
+  <% } %>
+
+
+      </div>
+       <div class="progress-container">
+        <div class="progress-bar" id="myBar" ></div>
+      </div>
+    </nav>
+
+</div>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en-US" itemtype="http://schema.org/WebPage">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta property="og:title" content="QkRes Technologies and Research Services - Chemicals">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://qkres.com/chemicals">
+    <meta property="og:description" content="
+we provide industrial chemicals for Laboratories at economical price">
+<meta name="name" content="QkRes Technologies and Research Services - Chemicals">
+<meta name="description" content="we provide industrial chemicals for Laboratories at economical price">
+<meta name="url" content="https://qkres.com/chemicals">
+    <title>QkRes Technologies and Research Services - Chemicals</title>
+    <link rel="shortcut icon" href="/images/favicon.ico">
+    <link rel="canonical" href="https://qkres.com/chemicals"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="/CSS/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.css" integrity="sha512-NXUhxhkDgZYOMjaIgd89zF2w51Mub53Ru3zCNp5LTlEzMbNNAjTjDbpURYGS5Mop2cU4b7re1nOIucsVlrx9fA==" crossorigin="anonymous" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/89e9116ed8.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@700&family=Montserrat:wght@300&display=swap" rel="stylesheet">
+</head>
+<body style="margin-top: 60px;">
+    <%-include("../navbar.ejs");  %>
+   
+    <section id="header">
+
+    <div class="ctube">
+        <img class="chemicaltube" src="/images/chemistry.svg" alt="qkres chemicals animated svg">
+    </div>
+    <img class="hatom" src="/images/atom.svg" alt="qkres chemicals atom svg">
+    <img class="hflask" src="/images/flask.svg" alt="qkres chemicals flask svg">
+  <!-- <img class="hchemical" src="/images/chemical.svg" alt="chemicalImg"> -->
+    <div class="chead">
+        <h1 id="cheading" >Chemicals</h1>
+    </div>
+
+    </section>
+    <section id="csection2">
+     <h1>We at <span id="qkresCN">QkRes</span> , serve you with great Care</h1>
+    
+     <div id="cs2d1">
+        <h4>Things you can expect</h4>
+        <p>Industrial chemicals and products such as Remi,Whatman, Aquasol </p>
+     </div>
+     <div id="cs2d2">
+        <h4>Chemical lab Equipments</h4>
+        <p>Chromatography Products, Laboratory Apparel, Laboratory Machines,..... </p>
+        <a class="btn btn-sm cb" href="/chemical-lab-equipments">See More</a>
+     </div>
+    </section>
+    <section id="csection3">
+    <div class="cs3d1"> 
+        <div class="cs3d2">
+            <p id="cs3p">Chemicals</p>
+          </div>
+          <div class="ccontainer">
+ <% data.forEach(function(c){ %>
+    <div class="ccard">
+        <div class="cbox">
+            <div class="ccontent">
+            <img style="height: 64px;" src="/images/molecule.svg" alt="qkres chemical image">
+            <h3> <%= c.name %> </h3>
+            <p>Enter required quantity in litres</p>
+           <form>
+              <input id="<%=c.name%>" class="form__input" type="text"  required placeholder="eg: 23">
+           </form>
+            <button class="add_To_Cart btn btn-lg cbutton" data-x="<%= JSON.stringify(c) %>" >Add to cart</button>
+            </div>
+        </div>
+    </div>  
+
+ <% })  %>   
+          </div>
+    </div>
+ 
+    </section>
+   <section id="csection4">
+    <div class="cs4d1">
+        <h4 id="cs3p" style="font-family: 'Lato', serif;">Didn't find your chemical ?</h4>
+        <p style="font-weight: bold;">No problem , tell us about chemicals that your are looking for ,we will get back to you in shortest time</p>
+        <a target="_blank" style="font-style: 'Lato';" class="btn btn-lg btn-outline-primary my-2" href="https://forms.gle/ezhxc3spu5izrnG9A">Submit your requirment</a>
+      </div>
+   </section>
+    <%- include("../footer.ejs") %>
+    <script src="/js/main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.js" integrity="sha512-lOrm9FgT1LKOJRUXF3tp6QaMorJftUjowOWiDcG5GFZ/q7ukof19V0HKx/GWzXCdt9zYju3/KhBNdCLzK8b90Q==" crossorigin="anonymous"></script>
+</body>
+</html>

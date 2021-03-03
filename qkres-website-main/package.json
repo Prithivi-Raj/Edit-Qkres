@@ -1,0 +1,78 @@
+{
+  "name": "Qkres",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "npm run development",
+    "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "watch": "npm run development -- --watch",
+    "update:packages": "node wipe-dependencies.js && rm -rf node_modules && npm update --save-dev && npm update --save",
+    "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NagaSai6/QKRES.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "engines": {
+    "node": "14.15.4"
+  },
+  "bugs": {
+    "url": "https://github.com/NagaSai6/QKRES/issues"
+  },
+  "homepage": "https://github.com/NagaSai6/QKRES#readme",
+  "dependencies": {
+    "@sendgrid/mail": "^7.3.0",
+    "@types/passport-google-oauth20": "^2.0.4",
+    "aws-sdk": "^2.824.0",
+    "axios": "^0.21.1",
+    "bcrypt": "^5.0.0",
+    "body-parser": "^1.19.0",
+    "connect": "^3.7.0",
+    "connect-mongo": "^3.2.0",
+    "crypt": "0.0.2",
+    "csurf": "^1.11.0",
+    "dotenv": "^8.2.0",
+    "ejs": "^3.1.5",
+    "express": "^4.17.1",
+    "express-flash": "0.0.2",
+    "express-rate-limit": "^5.2.3",
+    "express-session": "^1.17.1",
+    "express-validator": "^6.9.2",
+    "fs": "0.0.1-security",
+    "helmet": "^4.3.1",
+    "jquery": "^3.5.1",
+    "jsonwebtoken": "^8.5.1",
+    "moment": "^2.29.1",
+    "mongoose": "^5.10.7",
+    "mongoose-findorcreate": "^3.0.0",
+    "node-mailjet": "^3.3.1",
+    "nodemailer": "^6.4.14",
+    "nodemon": "^2.0.7",
+    "noty": "^3.2.0-beta",
+    "passport": "^0.4.1",
+    "passport-google-oauth20": "^2.0.0",
+    "passport-local": "^1.0.0",
+    "passport-local-mongoose": "^6.0.1",
+    "path": "^0.12.7",
+    "rate-limit-mongo": "^2.3.0",
+    "rate-limiter-flexible": "^2.2.1",
+    "redis": "^3.0.2",
+    "request": "^2.88.2",
+    "socket.io": "^3.0.5",
+    "stream": "0.0.2",
+    "validator": "^13.5.2"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.2",
+    "laravel-mix": "^5.0.7",
+    "resolve-url-loader": "^3.1.2",
+    "sass": "^1.27.0",
+    "sass-loader": "^8.0.2",
+    "vue-template-compiler": "^2.6.12"
+  }
+}

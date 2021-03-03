@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!-- <meta name="googlebot" content="noindex">
+    <meta name="robots" content="noindex"> -->
+    <title>qkres services form</title>
+    <!-- CSS only -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">   
+<link rel="stylesheet" href="/CSS/service.css">
+<link rel="stylesheet" href="/CSS/styles.css">
+ <!-- JavaScript Bundle with Popper -->
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+ <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+ <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/8203e495f4.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Langar&family=Redressed&display=swap" rel="stylesheet">
+    <style>
+  body{
+    background: #5f2c82;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #49a09d, #5f2c82);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #49a09d, #5f2c82); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  }
+</style>
+<link rel="shortcut icon" href="/images/favicon.ico">
+
+</head>
+<body>
+  <%- include("../navbar.ejs")  %>
+<% data.forEach(function(qkresServiceData){ %>
+ 
+  <div id="sticky">
+    <ul id="qkres-progressbar">
+      <li class="active">Personal Details</li>
+      <li>Requirement file</li>
+      <li>Address</li>
+    </ul>
+    </div>
+  <form id="qkresServiceForm" action="/qkres-services-form" method="POST">
+    
+    
+      <fieldset>
+        <h2 class="qkres-fs-title">Personal Details</h2>
+        <h3 class="qkres-fs-subtitle">Your Details are secure with us</h3>
+        <% if(messages.error){ %>
+          <span style="color:red;font-family: sans-serif;font-size: small;"><%= messages.error %>  </span>
+      <%  }%>
+        <input type="hidden" name="Itemid" value="<%=qkresServiceData._id%>">
+        <input type="hidden" name="serviceName" value="<%=qkresServiceData.name%>">
+        <input type="text" id="customerName" class=" input-md" value="<%=messages.customerName%>" name="customerName" placeholder="Name" required="required">
+        <input type="number" class=" input-md" id="phone"  name="phone" placeholder="Mobile" required="required">
+        <input type="email" id="email" class="input-sm" value="<%=messages.email%>" name="email" placeholder="Email Address" required="required">
+        <input type="text" id="department" class=" input-sm" value="<%=messages.department%>"  name="department" placeholder="Department" required="required">
+        <input type="text" id="insti" class="input-sm" value="<%=messages.insti%>" name="insti" placeholder="Institute" required>
+        <textarea   name="requirement" id="requi" class=" input-sm" cols="40" rows="4" placeholder="Tell us your Requirement in <%=qkresServiceData.name%> in 3 to 60 words" required="required"></textarea>
+
+        <input type="button" id="firstB" name="next" class="next action-button" disabled  value="Next" />
+
+      </fieldset>
+      <fieldset>
+        <h2 class="qkres-fs-title">Upload Service requirement File (pdf)</h2>
+        <h3 class="qkres-fs-subtitle">File size should not exceed 15Mb</h3>
+        <input id="fileUpload"  type="file" accept=".pdf" class="input-sm my-2" name="file" placeholder="uploadFile" required="required" style="margin-bottom:10px;">
+        <input name="url" type="hidden" id="uploadedFileUrl" value="">
+        <p id="errorMsg" style="color: red;text-align: center;font-size: 0.8rem;"></p>
+        <input type="button" name="previous"   class="previous  pb" value="Previous" />
+        <input type="button" id="submitForm" value="Upload" disabled>
+        <input type="button" name="next"  id="secondB" class="next action-button" disabled value="Next" />
+
+      </fieldset>
+      <fieldset>
+        <h2 class="qkres-fs-title">Contact Details</h2>
+        <h3 class="qkres-fs-subtitle">Your Privacy is our utmost priority</h3>
+        <% if(messages.error){ %>
+          <span style="color:red;font-family: sans-serif;font-size: small; "><%= messages.error %>  </span>
+      <%  }%>
+        <input type="text" class=" input-md"  name="country" placeholder="Country" required="required">
+        <input type="text" class=" input-md"  name="state" placeholder="State" required="required">
+        <input type="text" class=" input-md" name="city" placeholder="City/Town" required="required">
+        <input type="number" class=" input-md" value="<%=messages.pincode%>"  name="pincode" placeholder="Pincode" required="required">
+        <input type="text" class="form-control input-md" name="landmark" placeholder="Landmark" required="required">
+        <textarea   name="address" id="" class=" input-sm" cols="40" rows="4" placeholder="Address" required="required"></textarea> 
+        <input type="text" readonly class=" input-md" value="Check your inbox for updates"  >
+        <input type="button" name="previous"  class="previous pb" value="Previous" />
+        <button type="submit" class="btn btn-lg btn-primary">Submit</button>
+      </fieldset>
+
+  </form>
+
+<% }) %>
+    <script src="/js/services.js"></script>
+</body>
+</html>

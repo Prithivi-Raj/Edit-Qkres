@@ -1,0 +1,177 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pangolin&display=swap');
+
+:root{
+    --text-font:'Roboto', sans-serif;
+    --head-font:'Pangolin', cursive;
+}
+
+.about-head-title h1{
+    font-family: var(--head-font);
+    font-size: 45px;
+    font-weight: bold;
+    letter-spacing: 3px;
+}
+
+.about-head-title{
+    background-color: rgb(106, 104, 230);
+    color: #f1f1f1;
+}
+
+
+.who-image img {
+    height: 300px;
+    width: auto;
+    color: #f1f1f1;
+}
+
+.who-h {
+    font-family: var(--head-font);
+    font-size: 25px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.who-h p{
+  font-family: var(--head-font);
+}
+
+.who-p {
+    font-family: var(--text-font);
+    font-size: 18px;
+}
+
+.intro-card {
+    border-radius: 16px;
+    background: #ffffff;
+    box-shadow:  5px 5px 16px #a8a8a8,
+             -5px -5px 16px #ffffff;
+}
+
+.qkres-but {
+    font-family: var(--text-font);
+    text-decoration: none;
+    background-color: rgb(63, 54, 187);
+    color: #f1f1f1;
+    border-radius: 5px;
+    padding:8px 20px;
+    text-align: center;
+    display: inline-block;
+    border: none;
+}
+
+.qkres-but a{
+    font-family: var(--text-font);
+    text-decoration: none;
+    color: #f1f1f1;
+    font-size: 18px;
+}
+
+.button-qkres:hover .qkres-but {
+    background-color: rgb(52, 46, 126);
+    transition: 0.5s;
+    color: #f1f1f1;
+}
+
+.button-qkres:hover .qkres-but a {
+    color: #f1f1f1;
+}
+
+.qkres-but i {
+    display: inline-block;
+    color: #f1f1f1;
+    padding-left: 12px;
+}
+
+.who-p-2 {
+    font-family: var(--text-font);
+    font-size: 18px;    
+}
+
+.who-p-2 ul li {
+    text-decoration: none;
+    list-style: none;
+    padding: 5px;
+}
+
+.reach {
+    font-family: var(--head-font);
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.map-card {
+    font-family: var(--text-font);
+    width: 60%;
+    border: none;
+    border-radius: 18px;
+    background: #ffffff;
+    box-shadow:  5px 5px 16px #a8a8a8,
+             -5px -5px 16px #ffffff;
+}
+
+@media only screen and (max-width: 1100px) {
+    .map-card {
+      width: 120%;
+    }
+  }
+
+.map-h h4 {
+    font-family: var(--head-font);
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+
+.haha {
+    position: relative;
+    text-decoration: none;
+    font-family: var(--text-font);
+    color: black;
+    transition: 0.5s;
+  }
+.haha::after {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 3px;
+    top: 100%;
+    left: 0;
+    background:rgb(117, 110, 218);
+    transition: transform 0.5s;
+    transform: scaleX(0);
+    transform-origin: center;
+  }
+.haha:hover {
+    color: #676b6b;
+  }
+.haha:hover::after {
+    transform: scaleX(1);
+    transform-origin: center;
+  }
+
+.contact-card {
+  width: 60%;
+  border: none;
+  border-radius: 18px;
+  background: #ffffff;
+  box-shadow:  5px 5px 16px #a8a8a8,
+           -5px -5px 16px #ffffff;
+}
+
+.contact-card h4 {
+  font-family: var(--head-font);
+  font-weight: bold;
+  font-size: 25px;
+}
+
+@media only screen and (max-width: 600px) {
+  .contact-card {
+    width: fit-content  }
+}
+
+.contact-us-but {
+  font-family: var(--text-font);
+  font-size: 17px;
+}

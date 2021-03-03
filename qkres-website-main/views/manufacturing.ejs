@@ -1,0 +1,129 @@
+<html lang="en-US" itemtype="http://schema.org/WebPage">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta property="og:title" content="QkRes Technologies and Research - Manufacturing &amp; Fabrication">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://qkres.com/manufacturing-and-fabrication">
+    <meta property="og:description" content="
+We provide services for simple to complicated parts with high precision.
+We have highly skilled and experienced vendors for higher accuracy.
+We are dealing with :
+EDM Machining 
+Water Jet Machining
+CNC Machining
+Casting
+Welding
+Laser Cut Machining 
+Diamond laser cutting">
+<meta name="name" content="QkRes Technologies and Research Services - Manufacturing &amp; Fabrication">
+<meta name="description" content="
+We provide services for simple to complicated parts with high precision.
+We have highly skilled and experienced vendors for higher accuracy.
+We are dealing with :
+EDM Machining 
+Water Jet Machining
+CNC Machining
+Casting
+Welding
+Laser Cut Machining 
+Diamond laser cutting">
+<meta name="url" content="https://qkres.com/manufacturing-and-fabrication">
+<meta name="keywords" content="best welding services,effordable welding services">
+    <title>QkRes Technologies and Research Services - Manufacturing &amp; Fabrication</title>
+    <link rel="canonical" href="https://qkres.com/manufacturing-and-fabrication"/>
+    <link rel="stylesheet" href="/CSS/styles.css">
+    <link rel="stylesheet" href="/CSS/elec_home.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <style>
+      body{
+        margin-top: 60px;
+        overflow-x: hidden;
+      }
+      nav{
+        padding: 8px 16px;
+      }
+      .dropdown-item {
+   color: #000;
+   font-family: "Montserrat", sans-serif;
+ }
+
+  .dropdown-item:hover {
+  background-color: #5eaaa8;
+}
+.nav-item {
+  font-family: "Lato", sans-serif;
+}
+
+.navbar-collapse ul li a {
+  font-weight: bold;
+  color: #000;
+  font-size: 0.9rem;
+}
+
+    </style>
+
+      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.js"></script>
+      <link rel="shortcut icon" href="images/favicon.ico">
+      <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600&display=swap" rel="stylesheet">
+  
+</head>
+<body class="back-body">
+  <h3 style="display: none;">welding services,casting services,laser-cut-machining service</h3>
+
+<%- include('navbar.ejs') %>
+
+
+    <div class="container-fluid header text-center pt-5 pb-5 rounded-bottom-left-2">
+        <h1>Manufacturing and Fabrication</h1>
+    </div>
+
+    <h3 style="display: none;">welding services,casting services,laser-cut-machining service</h3>
+
+    <div class="container-fluid text-center service-head pt-5">
+        <h1>Our Services</h1>
+    </div>
+<!-- 
+    <div class="arrow bounce">
+        <a href="#service"><i class="fa fa-arrow-down fa-2x arrow-a"></i> </a>
+    </div> -->
+
+    <div id="service" class="service">
+        <div class="container">
+            <div class="row mt-5 d-flex justify-content-center">
+             <%  data.forEach(function(e){ %>
+              <div class="col-sm m-3 p-3 d-flex justify-content-center">
+                <div id="vcard" class="card">
+                    <div class="imgbox"> <img src="<%= e.image %>" alt="manufacturing and fabrication service image"> </div>
+                    <div class="content-c">
+                        <h2><%= e.name %></h2>
+                    <button class="button-b"><a class="btn-a" href="<%=e.link%>/<%=e._id%>">Submit Requirement</a></button>
+                    <p>Different <%=e.name%> available. Submit request by clicking on the submit botton.</p>
+                    </div>
+                </div>
+            </div>   
+
+             <%  }) %>
+            </div>
+        </div>
+       
+        <h3 style="display: none;">CNC Machining,Diamond laser cutting</h3>
+
+    </div>
+    <section class="mechanicals-section">
+     <h4 style="font-family: 'Oswald',serif;">Didn't find what you are looking for ?</h4>
+     <p>Let us know your requirment.we will provide assistance in shortest possible time</p>
+     <a target="_blank" class="btn btn-lg btn-primary" href="https://forms.gle/ezhxc3spu5izrnG9A">Submit your Requirement</a>
+    </section>
+    <%- include("../views/footer.ejs") %>
+
+</body>
+</html>

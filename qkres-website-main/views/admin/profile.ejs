@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Profile</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+   <style>
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+body {
+  background:#1D0E2E;
+  min-height:100vh;
+  font-family: 'Roboto', sans-serif;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.teams {
+  display:flex;
+  gap:20px;
+  flex-wrap:wrap;
+  align-items:center;
+  justify-content:center;
+}
+.card{
+  background:#2a1542;
+  padding:2rem;
+  display:flex;
+  flex-direction:column;
+ justify-content:space-between;
+  width:250px;
+  height:350px;
+  box-shadow:2px 4px 8px rgba(0,0,0,.2);
+  border-radius:5px;
+  animation:animate 4s linear infinite forwards;
+}
+.card:hover{
+  box-shadow:2px 2px 12px 2px rgba(74, 189, 154,.3),2px 2px 12px 2px rgba(71, 131, 204,.3);
+
+}
+.card-top{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+
+.card-top img{
+  width:80px;
+  height:80px;
+  box-shadow:1px 1px 4px 2px rgba(255,255,255,.2);
+  border-radius:50%;
+}
+.card-top .name{
+  margin-top:10px;
+  color:#fff;
+  text-transform:capitalize;
+}
+.card-top .link {
+  color: #838985;
+  cursor:pointer;
+}
+.card-top .link::before{
+  content:"@"
+}
+.card-top .link:hover{
+  color:red;
+}
+.btn{
+  border:2px solid #1D0E2E;
+  padding:.6rem;
+  border-radius:30px;
+  color:#fff;
+  background:transparent;
+  cursor:pointer;
+  text-transform:capitalize;
+  transition:.2s easy-in-out;
+}
+.btn:hover{
+  background:#1D0E2E;
+  box-shadow:2px 4px 3px #1D0E2E;
+}
+
+@keyframes animate{
+  0%{
+    border:2px solid red;
+  }
+  20%{
+    border:2px solid #4783cc;
+  } 
+  40%{
+    border:2px solid #ccaf47;
+  }
+  60%{
+    border:2px solid #ca47cc;
+  }
+  80%{
+    border:2px solid #d4555d;
+  } 
+  100%{
+    border:2px solid #b5a951;
+  }
+}
+   </style>
+    <!-- js -->
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <div class="teams">
+        <div class="card">
+        <div class="card-top">
+          <img src="https://file-storage-456.s3.ap-south-1.amazonaws.com/Qres.logo.png" alt="">
+          <span class="name">Admin's Panel</span>
+          <span class="link">qkres Technologies</span>
+        </div>
+        <a type="button" href="/admin/orders" class="btn">Material orders</a>
+        <a type="button" href="/admin/services" class="btn">Service orders</a>
+      </div>
+        <div class="card">
+        <div class="card-top">
+          <img src="https://file-storage-456.s3.ap-south-1.amazonaws.com/Qres.logo.png" alt="">
+          <span class="name">Stats</span>
+          <span class="link">Google Analytics</span>
+        </div>
+       <p style="color: white;"> Active Orders :<%= data %></p>
+       <% if (user.local.email) { %>
+        <a onclick="function hi(){alert('are you sure to Deactivate qkres account ?')};hi()" href="/unlink/local" class="btn ">Deactivate</a>
+    <% } else { %>
+        <p class="my-2">Create a QkRes Account with your email and password</p>
+        <a href="/connect/local" class="btn">Create QkRes Account</a>
+    <% } %>
+     
+      </div>
+        <div class="card">
+        <div class="card-top">
+          <img src="https://file-storage-456.s3.ap-south-1.amazonaws.com/Qres.logo.png" alt="">
+          <span class="name">Account</span>
+        
+        </div>
+        <% if (user.google.googleToken) { %>
+       
+          <a onclick="function kai(){alert('are you sure to remove google account from qkres?')};kai()" href="/unlink/google" class="btn">Deactivate</a>
+      <% } else { %>
+          <p style="color: white;" class="my-2">Connect google for faster login</p>
+          <a href="/connect/google" class="btn">Connect  Google  </a>
+      <% } %>
+      <a class="btn" onclick="function logout(){alert('do you want to logout ?')};logout()" href="/logout">Logout</a> 
+
+      </div>
+      </div>
+      
+    
+</body>
+</html>

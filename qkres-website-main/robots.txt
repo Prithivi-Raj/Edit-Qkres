@@ -1,0 +1,9 @@
+User-agent: *
+Disallow: 
+Disallow: /cart/,/delete-cart/,/update-cart/
+Disallow: /mech/*
+Disallow: /admin/*,/customer/*
+Disallow: /sign-s3/
+Disallow: /add-items/
+Disallow: /profile/
+Sitemap: https://qkres.com/qkres-sitemap

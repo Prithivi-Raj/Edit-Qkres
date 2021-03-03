@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+    <!-- <meta name="googlebot" content="noindex">
+    <meta name="robots" content="noindex"> -->
+  <title><%=header%></title>
+  <!-- css -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.css">
+  <link rel="stylesheet" href="/CSS/elec_home.css">
+
+  <!-- js -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.js"></script>
+
+  <!-- fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap" rel="stylesheet">
+
+  <!-- fontawesome -->
+  <script src="https://kit.fontawesome.com/8203e495f4.js" crossorigin="anonymous"></script>
+
+  <link rel="shortcut icon" href="/images/favicon.ico">
+</head>
+
+<body>
+  <div id="particles-js"><canvas class="particles-js-canvas-el" width="1889" height="349" style="width: 100%; height: 100%;"></canvas></div>
+  <%- include("../navbar.ejs")  %>
+
+  <div id="head">
+    <div id="title" data-aos="flip-left">
+      <h2><%=header%></h2>
+    </div>
+    <div class="arrow bounce">
+      <a style="color:white;" class="fa fa-angle-down fa-3x" href="#Nsiqwe"></a>
+    </div>
+  </div>
+  <div class="wrap" id="content">
+    <section id="first">
+      <!-- invisible div  -->
+      <div style="height:64px;" class="boxes invisible" id="Nsiqwe">
+        <h1>this content wont invisible bro just chill</h1>
+      </div>
+      <div class="boxes">
+        <div id="Nsj" class="box-1">
+          <h4>Our Products</h4>
+        </div>
+        <div class="container-fluid row mx-auto ">
+          <% data.forEach(function(e){ %>
+          <div class="col-md-4 my-4 elec">
+            <div class="text-center">
+              <img style="height:120px;" class="mb-4 menu_img" src="/<%= e.image %>" alt="img">
+            </div>
+            <a role= href="" target="_blank"></a>
+            <div class="text-center">
+              <h2 style="font-size:1rem;" class="mb-2"><%= e.name %></h2>
+              <div class="d-flex justify-content-center  mt-2">
+                <button data-x="<%= JSON.stringify(e) %>" style="position:relative;top:8px;" class="btn btn-sm btn-outline-success add_to_cart" href="">
+                  <span>+</span>
+                  <span>Add</span>
+                </button>
+              </div>
+            </div>
+          </div>
+          <%    }) %>
+        </div>
+      </div>
+    </section>
+  </div>
+  </section>
+  </div>
+ 
+
+  <%- include("../footer.ejs") %>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="/js/particles.min.js" charset="utf-8"></script>
+  <script src="/js/apply.js" charset="utf-8"></script>
+  <script src="/js/elecEquip.js" charset="utf-8"></script>
+</body>
+
+</html>

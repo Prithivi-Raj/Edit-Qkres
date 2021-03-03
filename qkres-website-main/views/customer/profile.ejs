@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Profile</title>
+  <!-- css -->
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="CSS/styles.css">
+  <link rel="stylesheet" href="CSS/profile/profile.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+  <!-- js -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/89e9116ed8.js" crossorigin="anonymous"></script>
+
+  <!-- fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Josefin+Sans:wght@300&display=swap" rel="stylesheet">
+  <!-- fontawesome -->
+
+  <link rel="shortcut icon" href="images/favicon.ico">
+
+</head>
+<body>
+    <%- include("../navbar.ejs") %> 
+<div class="wrap">
+    <div class="frame">
+        <div class="welcome">
+            <div>
+                <h2>Welcome to your profile</h2> 
+                <div class="name">
+                    <% if(user.local != undefined){ %>
+                        <%= user.local.customerName %>
+                   <%}else{ %>
+                    <%= user.google.customerName %>
+                  <% }%>
+                </div>
+                <a href="/logout" onclick="return notify()" class="btn btn-danger but-order-log"><i class="fa fa-sign-out log-icon" aria-hidden="true"></i>Log Out</a>
+            </div>
+        </div>
+        <div class="center">
+            <div class="profile">
+                <div class="image">
+                    <div class="circle-1"></div>
+                    <div class="circle-2"></div>
+                    <img src="images/profile/profile.svg" width="70" height="70" alt="Jessica Potter">
+                </div>
+                <div class="name">
+                    <% if(user.local != undefined){ %>
+                        <%= user.local.customerName %>
+                   <%}else{ %>
+                    <%= user.google.customerName %>
+                  <% }%>
+                </div>
+            </div>
+            <div class="stats" style="visibility: hidden;">
+                <div class="box">
+                    <span class="value text-primary"> </span>
+                    <span class="parameter">Material Orders</span>
+                </div>
+                <div class="box">
+                    <span class="value text-primary"></span>
+                    <span class="parameter">Service Orders</span>
+                </div>
+            </div>
+            <div class="actions">
+                <a href="/customer/orders" class="btn btn-primary">Material Orders</a>
+                <a href="/customer/serviceOrders" class="btn btn-success">Service Orders</a>
+            </div>
+        </div>
+    </div>
+    <div class="end">
+        <div class="well">
+<% if(!user.local.email){ %>
+    <p><i class="fa fa-user" aria-hidden="true" style="margin: 10px; font-size: 20px;"></i>Create a QkRes Account with your email and password</p>
+    <a href="/connect/local" class="btn btn-outline-light">Create QkRes Account</a>
+ <% } %>
+        </div>
+        <div class="well">
+         <%   if(!user.google.googleToken){ %>
+            <i class="fab fa-google" aria-hidden="true"></i><a href="/connect/google" class="btn btn-danger">Connect Google</a>
+         <%   } %>     
+        </div>
+    </div>
+    </div>
+</div>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+<script>
+    function notify(){
+        var r = confirm("Do you want to logout ? Press ok to confirm.");
+      if (r==true)
+        { 
+    return true;
+    }
+       else
+    {  
+    // return false here
+    return false;
+    }
+    }
+</script>
+</body>
+
+</html>
