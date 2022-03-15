@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr" itemtype="http://schema.org/WebPage">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <meta
+      property="og:title"
+      content="QkRes Technologies and Research Services - Electrical equipments"
+    />
+    <meta
+      property="og:description"
+      content="
+     We deliver various electrical equipment ranging from basic to advanced equipment such as :
+     Dc Power supply,Oscilloscope,digital storage Oscilloscope,digital ohmmeter,portable typemeter,decade box,electronic training boards
+     And many more on request from your side
+"
+    />
+    <meta
+      name="name"
+      content="QkRes Technologies and Research Services - Electrical equipments"
+    />
+    <meta
+      name="description"
+      content="
+We deliver various electrical equipment ranging from basic to advanced equipment such as :
+     Dc Power supply,Oscilloscope,digital storage Oscilloscope,digital ohmmeter,portable typemeter,decade box,electronic training boards
+     And many more on request from your side"
+    />
+
+    <meta name="url" content="https://qkres.com/electrical-lab-equipments" />
+
+    <title>
+      QkRes Technologies and Research Services - Electrical equipments
+    </title>
+    <!-- css -->
+    <link rel="canonical" href="https://qkres.com/electrical-lab-equipments" />
+
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/CSS/spinkit.min.css" />
+    <link rel="stylesheet" href="/CSS/elec_home.css" />
+    <link rel="stylesheet" href="CSS/feedback.css" />
+
+    <!-- js -->
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.js"></script>
+
+    <!-- fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- fontawesome -->
+    <script
+      src="https://kit.fontawesome.com/89e9116ed8.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="shortcut icon" href="/images/favicon.ico" />
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="top-form-bar">
+        <div class="top-bar top-bar-green"></div>
+      </div>
+      <div class="feedback-form">
+        <div class="feedback-multi-column">
+          <div class="header">
+            <div class="column-full">
+              <h4><i class="icon-envelop-2"></i>Feedback Form</h4>
+            </div>
+          </div>
+          <div class="section">
+            <form method="post" action="php/form.php" id="feedback">
+              <fieldset>
+                <div class="column-full">
+                  <div id="feedback-message"></div>
+                </div>
+                <div class="column-half">
+                  <div class="input-group">
+                    <label for="firstname" name="firstname"
+                      ><i class="icon-user-3"></i
+                    ></label>
+                    <input
+                      type="text"
+                      id="firstname"
+                      name="firstname"
+                      maxlength="30"
+                      placeholder="First Name"
+                    />
+                  </div>
+                </div>
+                <div class="column-half">
+                  <div class="input-group">
+                    <label for="lastname" name="lastname"
+                      ><i class="icon-user-3"></i
+                    ></label>
+                    <input
+                      type="text"
+                      id="lastname"
+                      name="lastname"
+                      maxlength="30"
+                      placeholder="Last Name"
+                    />
+                  </div>
+                </div>
+                <div class="column-full">
+                  <div class="input-group">
+                    <label for="useremail" name="useremail"
+                      ><i class="icon-envelop-opened"></i
+                    ></label>
+                    <input
+                      type="email"
+                      id="useremail"
+                      name="useremail"
+                      maxlength="70"
+                      placeholder="Email Address"
+                    />
+                  </div>
+                </div>
+                <div class="column-full">
+                  <div class="input-group">
+                    <label for="userfeedback" name="userfeedback"
+                      ><i class="icon-envelop-opened"></i
+                    ></label>
+                    <textarea
+                      type="text"
+                      id="userfeedback"
+                      name="userfeedback"
+                      maxlength="400"
+                      placeholder="Your Feedback"
+                      
+                    />
+                      </textarea>
+                  </div>
+                </div>
+                <div class="column-full">
+                  <button type="reset" class="button button-small button-red">
+                    Reset
+                  </button>
+                  <button
+                    type="submit"
+                    id="send"
+                    name="send"
+                    class="button button-small button-green"
+                  >
+                    Send Message
+                  </button>
+                  <div id="loader"></div>
+                </div>
+              </fieldset>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

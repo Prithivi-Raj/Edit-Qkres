@@ -17,6 +17,8 @@ const statusController = require("../app/controllers/statusController")
 const cancelRequest = require("../app/controllers/cancelOrderRequest/oCancelController")
 const services = require("../app/controllers/services/serviceController")
 const fileDownloadController = require("../app/controllers/fileDownloadController")
+const feedback = require("../app/controllers/feedbackController")
+
 const passport = require("passport");
 const { check } = require('express-validator');
 const RateLimit = require("express-rate-limit");
@@ -281,6 +283,8 @@ app.get("/material-resources/mechanical-resources",redirect().mech)
  // robots
  app.get('/robots.txt',homePage().robots)
 
+ // Feedback
+ app.get("/feedback",feedback().index)
 
 
 }
